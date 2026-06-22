@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>株式会社OMINAS｜採用代行・RPO｜採用にまつわる、すべてを。</title>
+<meta name="description" content="業種・職種を問わず対応。戦略設計から媒体運用、面接代行、内製化支援まで、採用にまつわるすべてをひとつの窓口で。月額30万円〜の定額制で提供する採用代行（RPO）、株式会社OMINAS。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#FAFAF9;
+    --card:#FFFFFF;
+    --ink:#15161A;
+    --ink-2:#6B6D73;
+    --ink-3:#9A9CA1;
+    --line:#E9E9E6;
+    --line-2:#F0F0ED;
+    --dark:#15161A;
+    --s-med:#1E7A5D;
+    --s-toss:#2C3E73;
+    --s-genba:#C7791A;
+    --s-spot:#157E7A;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  h1,h2,h3,h4,.disp{font-family:"Zen Kaku Gothic New",sans-serif;}
+  .mono{font-family:"Archivo",sans-serif;font-variant-numeric:tabular-nums;}
+  a{color:inherit;text-decoration:none;}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:15px;padding:15px 30px;border-radius:3px;border:none;cursor:pointer;transition:transform .16s ease,background .2s,box-shadow .2s,color .2s,border-color .2s;}
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{background:#000;transform:translateY(-2px);box-shadow:0 12px 26px rgba(21,22,26,.22);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+  .btn-light{background:#fff;color:var(--ink);}
+  .btn-light:hover{background:#EDEDEA;transform:translateY(-2px);}
+  .btn .arr{font-family:"Archivo";font-weight:700;transition:transform .2s;}
+  .btn:hover .arr{transform:translateX(3px);}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(250,250,249,.86);backdrop-filter:saturate(150%) blur(14px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .logo{display:flex;align-items:center;gap:11px;}
+  .logo .mk{width:10px;height:10px;background:var(--ink);border-radius:50%;}
+  .logo .nm{font-family:"Archivo";font-weight:900;font-size:23px;letter-spacing:.06em;color:var(--ink);}
+  .nav-links{display:flex;align-items:center;gap:32px;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-2);transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav .btn{padding:11px 22px;font-size:14px;}
+
+  /* hero */
+  .hero{position:relative;padding:92px 0 84px;}
+  .hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:"Archivo";font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:24px;}
+  .eyebrow::before{content:"";width:28px;height:1.5px;background:var(--ink);}
+  .pill{display:inline-block;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:12.5px;letter-spacing:.04em;color:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:5px 14px;margin-bottom:26px;}
+  h1.big{font-weight:900;font-size:clamp(46px,7vw,84px);line-height:1.05;letter-spacing:.015em;}
+  h1.big .l2{display:block;}
+  h1.big .dot{position:relative;}
+  h1.big .dot::after{content:"";position:absolute;right:-.18em;bottom:.12em;width:.14em;height:.14em;background:var(--ink);border-radius:50%;}
+  .hero .lead{margin-top:28px;font-size:18px;font-weight:500;color:var(--ink-2);max-width:30em;}
+  .hero .lead b{color:var(--ink);font-weight:700;}
+  .hero-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;}
+  .hero-tags{margin-top:28px;display:flex;gap:9px;flex-wrap:wrap;}
+  .hero-tags span{font-family:"Noto Sans JP";font-weight:500;font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);background:#fff;padding:6px 13px;border-radius:3px;}
+  .hero-tags span.lead-tag{color:#fff;background:var(--ink);border-color:var(--ink);font-weight:700;}
+
+  /* hero index card (signature) */
+  .indexcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:30px 32px;box-shadow:0 24px 60px rgba(21,22,26,.07);}
+  .indexcard .cap{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:6px;}
+  .indexcard .cap b{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:16px;}
+  .indexcard .cap em{font-family:"Archivo";font-style:normal;font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--ink-3);}
+  .idx-row{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-2);font-size:14.5px;font-weight:500;color:var(--ink-2);transition:color .3s;}
+  .idx-row:last-child{border-bottom:none;}
+  .idx-row .n{font-family:"Archivo";font-weight:700;font-size:12px;color:var(--ink-3);width:22px;flex:none;transition:color .3s;}
+  .idx-row .ck{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center;font-size:10px;color:transparent;transition:all .3s;}
+  .idx-row.on{color:var(--ink);}
+  .idx-row.on .ck{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .idx-row.on .n{color:var(--ink);}
+
+  /* section base */
+  section{padding:100px 0;}
+  .kick{font-family:"Archivo";font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+  .kick::before{content:"";width:18px;height:1.5px;background:var(--ink-2);}
+  h2.h{font-weight:900;font-size:clamp(28px,4.2vw,46px);line-height:1.3;letter-spacing:.01em;}
+  .lead-2{margin-top:18px;color:var(--ink-2);font-size:16px;max-width:40em;}
+
+  /* why (dark) */
+  .why{background:var(--dark);color:#EDEDEA;}
+  .why .kick{color:#9A9CA1;}
+  .why .kick::before{background:#5A5C62;}
+  .why .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .why h2.h{color:#fff;font-size:clamp(26px,3.6vw,40px);}
+  .why p{margin-top:22px;color:#A8AAB0;font-size:16px;}
+  .why p .hl{color:#fff;font-weight:700;}
+  .lineart{display:grid;gap:0;}
+  .la-step{display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.10);}
+  .la-step .num{font-family:"Archivo";font-weight:800;font-size:13px;color:#fff;width:30px;flex:none;}
+  .la-step .t{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:17px;color:#fff;}
+  .la-step .d{font-size:13px;color:#7C7E84;margin-left:auto;text-align:right;}
+  .la-conn{text-align:center;color:#A8AAB0;font-size:14px;font-weight:700;padding:22px 0 0;letter-spacing:.02em;}
+
+  /* services */
+  .services{background:var(--bg);}
+  .svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:48px;}
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .scard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:34px 34px 30px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s;}
+  .scard:hover{transform:translateY(-5px);box-shadow:0 26px 54px rgba(21,22,26,.10);border-color:var(--c);}
+  .scard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c);}
+  .scard .sk{display:inline-flex;align-items:center;gap:8px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--c);}
+  .scard .sk::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c);}
+  .scard h3{font-weight:900;font-size:27px;margin:11px 0 3px;}
+  .scard .tag{font-family:"Zen Kaku Gothic New";font-weight:700;font-size:14.5px;color:var(--ink);opacity:.82;}
+  .scard p{margin:16px 0 22px;font-size:14.5px;color:var(--ink-2);}
+  .scard .more{display:inline-flex;align-items:center;gap:8px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:14px;color:var(--ink);}
+  .scard .more .arr{font-family:"Archivo";transition:transform .2s;}
+  .scard:hover .more .arr{transform:translateX(4px);}
+  .scard .ghost{position:absolute;right:-4px;bottom:-30px;font-family:"Archivo";font-weight:900;font-size:120px;line-height:1;color:var(--c);opacity:.045;letter-spacing:-.04em;}
+  .svc-note{margin-top:24px;text-align:center;font-size:14.5px;color:var(--ink-2);border:1px dashed var(--line);border-radius:8px;padding:18px;background:#fff;}
+  .svc-note b{color:var(--ink);font-weight:700;}
+
+  /* coverage */
+  .coverage{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .cov-head{text-align:center;max-width:680px;margin:0 auto 54px;}
+  .cov-head .kick{justify-content:center;}
+  .cov-head .lead-2{margin:18px auto 0;}
+  .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .citem{background:#fff;padding:34px 30px;transition:background .2s;}
+  .citem:hover{background:var(--bg);}
+  .citem .ci-n{font-family:"Archivo";font-weight:800;font-size:13px;color:var(--ink-3);}
+  .citem h4{font-weight:900;font-size:19px;margin:12px 0 8px;}
+  .citem p{font-size:14px;color:var(--ink-2);}
+
+  /* reasons */
+  .reasons{background:var(--bg);}
+  .rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+  .ritem{border-top:2px solid var(--ink);padding-top:22px;}
+  .ritem .rn{font-family:"Archivo";font-weight:800;font-size:12px;letter-spacing:.08em;color:var(--ink-2);}
+  .ritem h4{font-weight:900;font-size:21px;margin:12px 0 10px;line-height:1.4;}
+  .ritem p{font-size:14px;color:var(--ink-2);}
+
+  /* pricing (dark) */
+  .pricing{background:var(--dark);color:#EDEDEA;}
+  .pricing .kick{color:#9A9CA1;justify-content:center;}
+  .pricing .kick::before{background:#5A5C62;}
+  .pr-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+  .pricing h2.h{color:#fff;}
+  .pricing .pr-head .lead-2{color:#A8AAB0;margin:18px auto 0;}
+  .prbox{max-width:720px;margin:0 auto;background:var(--card);color:var(--ink);border-radius:14px;padding:48px 48px 42px;box-shadow:0 40px 90px rgba(0,0,0,.34);}
+  .prbox .plan{display:flex;align-items:center;gap:12px;font-family:"Zen Kaku Gothic New";font-weight:700;font-size:16px;color:var(--ink);}
+  .prbox .plan::after{content:"FULL COVERAGE";font-family:"Archivo";font-weight:700;font-size:10px;letter-spacing:.14em;color:var(--ink-2);border:1px solid var(--line);padding:4px 9px;border-radius:999px;}
+  .prbox .amt{font-family:"Archivo";font-weight:900;font-size:clamp(54px,8vw,82px);line-height:1.02;margin:10px 0 2px;}
+  .prbox .amt small{font-size:30px;font-weight:800;}
+  .prbox .amt .per{font-family:"Noto Sans JP";font-size:22px;font-weight:700;color:var(--ink-2);}
+  .prbox .tax{font-size:13px;color:var(--ink-2);}
+  .prlist{display:grid;grid-template-columns:1fr 1fr;gap:11px 26px;margin:30px 0;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .prlist li{list-style:none;display:flex;gap:11px;align-items:flex-start;font-size:14.5px;font-weight:500;}
+  .prlist li::before{content:"✓";color:var(--ink);font-weight:900;flex:none;}
+  .prnote{font-size:13.5px;color:var(--ink-2);margin-bottom:26px;}
+  .prnote b{color:var(--ink);font-weight:700;}
+
+  /* flow */
+  .flow{background:var(--bg);}
+  .fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:8px;}
+  .fstep{position:relative;}
+  .fstep .fn{font-family:"Archivo";font-weight:900;font-size:48px;color:var(--ink);line-height:1;}
+  .fstep h4{font-weight:700;font-size:18px;margin:12px 0 8px;}
+  .fstep p{font-size:14px;color:var(--ink-2);}
+
+  /* company */
+  .company{background:#fff;border-top:1px solid var(--line);}
+  .co-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
+  .co-card{background:var(--ink);color:#EDEDEA;border-radius:14px;padding:42px;}
+  .co-card .role{font-family:"Archivo";font-weight:600;font-size:12px;letter-spacing:.1em;color:#9A9CA1;}
+  .co-card .nm{font-family:"Zen Kaku Gothic New";font-weight:900;font-size:34px;color:#fff;margin:8px 0 2px;}
+  .co-card .nm span{display:block;font-family:"Archivo";font-weight:600;font-size:12px;letter-spacing:.16em;color:#9A9CA1;margin-top:8px;}
+  .co-card ul{list-style:none;margin-top:24px;display:grid;gap:10px;}
+  .co-card li{font-size:13.5px;color:#C2C4CA;display:flex;gap:10px;}
+  .co-card li::before{content:"—";color:#7C7E84;}
+  .co-msg h2.h{font-size:clamp(24px,3.4vw,34px);}
+  .co-msg .lead-2{font-size:16px;}
+  .co-msg .lead-2+.lead-2{margin-top:14px;}
+
+  /* cta */
+  .cta{background:var(--dark);color:#fff;text-align:center;}
+  .cta .kick{justify-content:center;color:#9A9CA1;}
+  .cta .kick::before{background:#5A5C62;}
+  .cta h2.h{color:#fff;font-size:clamp(30px,4.6vw,52px);}
+  .cta p{margin:20px auto 34px;max-width:34em;font-size:17px;color:#A8AAB0;}
+  .cta .hero-cta{justify-content:center;}
+  .cta .small{margin-top:22px;font-size:13px;color:#7C7E84;}
+
+  /* footer */
+  footer{background:var(--ink);color:#8A8C92;padding:60px 0 40px;}
+  .frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;}
+  footer .logo .nm{color:#fff;}
+  footer .logo .mk{background:#fff;}
+  .fcorp{font-size:13.5px;line-height:2;margin-top:16px;}
+  .fcorp b{color:#fff;font-weight:700;}
+  .fcol h5{font-family:"Archivo";font-weight:700;font-size:11px;letter-spacing:.14em;color:#6A6C72;margin-bottom:14px;}
+  .fcol a{display:block;font-size:13.5px;color:#A8AAB0;padding:4px 0;}
+  .fcol a:hover{color:#fff;}
+  .copy{margin-top:42px;padding-top:24px;border-top:1px solid rgba(255,255,255,.10);font-family:"Archivo";font-size:12px;letter-spacing:.04em;color:#6A6C72;}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+
+  @media(max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;gap:46px;}
+    .why .grid,.co-wrap{grid-template-columns:1fr;gap:36px;}
+    .rgrid{grid-template-columns:1fr 1fr;}
+    .cgrid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:680px){
+    .nav-links{display:none;}
+    section{padding:70px 0;}
+    .hero{padding:54px 0;}
+    .sgrid,.fgrid,.rgrid,.cgrid,.prlist{grid-template-columns:1fr;}
+    .prbox{padding:34px 26px;}
+    .co-card{padding:32px 26px;}
+    .la-step .d{display:none;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto;}
+    .rv{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><span class="mk"></span><span class="nm">OMINAS</span></a>
+    <nav class="nav-links">
+      <a href="#services">サービス</a>
+      <a href="#coverage">できること</a>
+      <a href="#reasons">選ばれる理由</a>
+      <a href="#pricing">料金</a>
+      <a href="#company">会社概要</a>
+    </nav>
+    <a href="https://forms.gle/VPLuFETVKSXnFNXf6" target="_blank" rel="noopener" class="btn btn-primary">無料で相談する</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">株式会社OMINAS ／ 採用代行・RPO</span>
+      <h1 class="big">採用に関わる、<span class="l2"><span class="dot">すべてを</span></span></h1>
+      <p class="lead"><b>業種・職種を問わず対応。</b>戦略の設計から、媒体運用、面接代行、内製化支援まで。採用にまつわるすべてを、ひとつの窓口で。月額30万円〜の定額制でお引き受けします。</p>
+      <div class="hero-cta">
+        <a href="https://forms.gle/VPLuFETVKSXnFNXf6" target="_blank" rel="noopener" class="btn btn-primary">無料で相談する <span class="arr">→</span></a>
+        <a href="#services" class="btn btn-ghost">サービスを見る</a>
+      </div>
+      <div class="hero-tags">
+        <span class="lead-tag">全業界・全職種 対応</span><span>採用戦略</span><span>媒体運用</span><span>面接代行</span><span>新卒採用</span><span>内製化支援</span>
+      </div>
+    </div>
+    <div class="indexcard rv" id="indexcard">
+      <div class="cap"><b>OMINASが引き受ける採用業務</b><em>ALL OF IT</em></div>
+      <div class="idx-row"><span class="n">01</span><span class="ck">✓</span>採用戦略の設計</div>
+      <div class="idx-row"><span class="n">02</span><span class="ck">✓</span>媒体運用・求人原稿の制作</div>
+      <div class="idx-row"><span class="n">03</span><span class="ck">✓</span>スカウト送信・候補者対応</div>
+      <div class="idx-row"><span class="n">04</span><span class="ck">✓</span>面接日程の調整・辞退防止</div>
+      <div class="idx-row"><span class="n">05</span><span class="ck">✓</span>一次・二次面接の代行</div>
+      <div class="idx-row"><span class="n">06</span><span class="ck">✓</span>新卒採用支援・インターン構築</div>
+      <div class="idx-row"><span class="n">07</span><span class="ck">✓</span>転職フェア運営・紹介会社の窓口</div>
+      <div class="idx-row"><span class="n">08</span><span class="ck">✓</span>採用の内製化支援</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY (dark) -->
+<section class="why">
+  <div class="wrap">
+    <div class="grid">
+      <div class="rv">
+        <div class="kick">The Problem</div>
+        <h2 class="h">「採用がうまくいかない」<br>本当の理由。</h2>
+        <p>媒体に頼んでも、紹介会社に頼んでも、どこか噛み合わない。それは、採用を<span class="hl">バラバラに外注している</span>から。採用は、戦略から定着までが一本の線。<span class="hl">途切れた瞬間に、応募も内定承諾もこぼれ落ちます。</span></p>
+        <p>OMINASは、その線を、まるごと引き受けます。</p>
+      </div>
+      <div class="lineart rv">
+        <div class="la-step"><span class="num">01</span><span class="t">戦略設計</span><span class="d">ペルソナ・媒体・予算</span></div>
+        <div class="la-step"><span class="num">02</span><span class="t">応募獲得</span><span class="d">原稿・スカウト・運用</span></div>
+        <div class="la-step"><span class="num">03</span><span class="t">面接・選考</span><span class="d">日程調整・面接代行</span></div>
+        <div class="la-step"><span class="num">04</span><span class="t">内定・定着</span><span class="d">承諾率・内製化</span></div>
+        <div class="la-conn">ぜんぶ、つながって初めて採れる。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="svc-head rv">
+      <div>
+        <div class="kick">Our Services</div>
+        <h2 class="h">領域特化の、4つの専門サービス。</h2>
+      </div>
+      <p class="lead-2" style="margin:0;">難易度の高い領域には、専門ブランドで。<br>全業界対応の中核に、特化サービスを備えています。</p>
+    </div>
+    <div class="sgrid">
+      <a href="https://medi-ho-lp.vercel.app/" target="_blank" rel="noopener" class="scard rv" style="--c:var(--s-med);">
+        <div class="sk">医療・障害福祉 RPO</div>
+        <h3>メディホー</h3>
+        <div class="tag">有資格者が、定額で採り放題。</div>
+        <p>自社で障害福祉事業所を6事業所運営する“当事者”が手掛ける、医療・福祉特化の採用代行。月額10万円〜。</p>
+        <span class="more">詳しく見る <span class="arr">→</span></span>
+        <span class="ghost">M</span>
+      </a>
+      <a href="https://tossup-lp.vercel.app/" target="_blank" rel="noopener" class="scard rv" style="--c:var(--s-toss);">
+        <div class="sk">面接代行</div>
+        <h3>トスアップ</h3>
+        <div class="tag">最終面接の前に、プロが口説く。</div>
+        <p>0.5次・1次面接を代行し、候補者の志望度を引き上げる。現場の面接負担を減らし、辞退を防ぎます。</p>
+        <span class="more">詳しく見る <span class="arr">→</span></span>
+        <span class="ghost">T</span>
+      </a>
+      <a href="https://genba-scout-lp.vercel.app/" target="_blank" rel="noopener" class="scard rv" style="--c:var(--s-genba);">
+        <div class="sk">建設・施工管理 RPO</div>
+        <h3>ゲンバスカウト</h3>
+        <div class="tag">採れない現場職を、スカウトで。</div>
+        <p>建設・施工管理に特化した採用代行。媒体を横断したスカウト運用で、母集団形成が難しい職種を獲得します。</p>
+        <span class="more">詳しく見る <span class="arr">→</span></span>
+        <span class="ghost">G</span>
+      </a>
+      <a href="https://spothunter-lp.vercel.app/" target="_blank" rel="noopener" class="scard rv" style="--c:var(--s-spot);">
+        <div class="sk">Timee運用代行</div>
+        <h3>スポットハンター</h3>
+        <div class="tag">働いた人を、そのまま採る。</div>
+        <p>スポットワークを入口に、実際に働いた人材をそのまま直接採用へ。ミスマッチの少ない採用を実現します。</p>
+        <span class="more">詳しく見る <span class="arr">→</span></span>
+        <span class="ghost">S</span>
+      </a>
+    </div>
+    <div class="svc-note rv">上記の専門領域に限らず、<b>業種・職種を問わずあらゆる採用に対応</b>します。「うちの業界でも？」は、まずご相談ください。</div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage" id="coverage">
+  <div class="wrap">
+    <div class="cov-head rv">
+      <div class="kick">Full Coverage</div>
+      <h2 class="h">採用機能、まるごと。</h2>
+      <p class="lead-2">専門サービスの枠を越えて、採用に関わる業務すべてを代行・支援します。<br>「どこから手をつければ…」も、まとめてお任せください。</p>
+    </div>
+    <div class="cgrid">
+      <div class="citem rv"><div class="ci-n">01</div><h4>採用戦略の設計</h4><p>ペルソナ言語化、媒体選定、年間計画、競合分析、予算配分まで設計します。</p></div>
+      <div class="citem rv"><div class="ci-n">02</div><h4>新卒採用支援</h4><p>新卒採用の母集団形成から選考設計、学生対応までトータルで支援します。</p></div>
+      <div class="citem rv"><div class="ci-n">03</div><h4>インターンシップ構築</h4><p>採用につながるインターンの企画・設計・運営を伴走で支援します。</p></div>
+      <div class="citem rv"><div class="ci-n">04</div><h4>転職フェア運営代行</h4><p>ブース設計から当日の応対トーク設計まで、出展成果を最大化します。</p></div>
+      <div class="citem rv"><div class="ci-n">05</div><h4>紹介会社の窓口対応</h4><p>複数エージェントとの連携・条件交渉・候補者管理を一括で代行します。</p></div>
+      <div class="citem rv"><div class="ci-n">06</div><h4>採用の内製化支援</h4><p>代行で終わらせず、自社で回せる採用体制づくりまで伴走します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="reasons" id="reasons">
+  <div class="wrap">
+    <div class="svc-head rv" style="margin-bottom:42px;">
+      <div>
+        <div class="kick">Why OMINAS</div>
+        <h2 class="h">なぜ、まるごと任せられるのか。</h2>
+      </div>
+    </div>
+    <div class="rgrid">
+      <div class="ritem rv"><div class="rn">01 / 一気通貫</div><h4>戦略から定着まで、一社で完結。</h4><p>窓口がひとつだから、施策が途切れない。採用全体を一本の線で最適化します。</p></div>
+      <div class="ritem rv"><div class="rn">02 / 当事者性</div><h4>自社でも、現場を運営。</h4><p>自社で福祉施設を6事業所運営。採れない現場の痛みを、現場の人間として知っています。</p></div>
+      <div class="ritem rv"><div class="rn">03 / 実績</div><h4>代表は、採用歴14年。</h4><p>新卒支援・ヘッドハンティング・M&A。採用市場を知り尽くした視点で設計します。</p></div>
+      <div class="ritem rv"><div class="rn">04 / 定額制</div><h4>成果報酬なし、コストが読める。</h4><p>何人採用しても追加費用ゼロ。予算が立てやすい、シンプルな定額制です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (dark) -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="pr-head rv">
+      <div class="kick">Pricing</div>
+      <h2 class="h">採用機能、まるごと定額。</h2>
+      <p class="lead-2">採用に関わるすべてをカバーする、フルカバープラン。</p>
+    </div>
+    <div class="prbox rv">
+      <div class="plan">フルカバープラン</div>
+      <div class="amt mono"><small>¥</small>300,000<span class="per">〜／月</span></div>
+      <div class="tax">税抜・月額定額／成果報酬なし</div>
+      <ul class="prlist">
+        <li>採用戦略の設計・運用</li>
+        <li>全媒体の運用・原稿制作</li>
+        <li>スカウト・候補者対応</li>
+        <li>一次・二次面接の代行</li>
+        <li>新卒採用・インターン構築</li>
+        <li>転職フェア運営代行</li>
+        <li>紹介会社の窓口対応</li>
+        <li>採用の内製化支援</li>
+      </ul>
+      <p class="prnote">まずは特定の領域から始めたい方へ。<b>各専門サービス（メディホーは月額10万円〜）</b>単体でのご利用も可能です。貴社の課題に合わせて、柔軟にプランを設計します。</p>
+      <a href="https://forms.gle/VPLuFETVKSXnFNXf6" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">このプランで相談する <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow">
+  <div class="wrap">
+    <div class="svc-head rv" style="margin-bottom:46px;">
+      <div>
+        <div class="kick">How it works</div>
+        <h2 class="h">導入の流れ</h2>
+      </div>
+    </div>
+    <div class="fgrid">
+      <div class="fstep rv"><div class="fn mono">01</div><h4>無料相談・採用診断</h4><p>採用の現状とお悩みをヒアリング。今の課題を整理します。</p></div>
+      <div class="fstep rv"><div class="fn mono">02</div><h4>戦略・体制の設計</h4><p>どこを任せ、どう回すか。最適な採用体制をご提案します。</p></div>
+      <div class="fstep rv"><div class="fn mono">03</div><h4>まるごと運用代行</h4><p>戦略から面接まで一気通貫で実行。現場は本業に集中できます。</p></div>
+      <div class="fstep rv"><div class="fn mono">04</div><h4>改善・内製化支援</h4><p>数字を見ながら改善し、自走できる体制づくりまで伴走します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div class="wrap">
+    <div class="co-wrap">
+      <div class="co-card rv">
+        <div class="role">株式会社OMINAS 代表取締役</div>
+        <div class="nm">大矢知 卓<span>SUGURU OYACHI</span></div>
+        <ul>
+          <li>元マイナビ</li>
+          <li>採用支援会社の共同創業</li>
+          <li>医師ヘッドハンティング事業</li>
+          <li>M&A仲介</li>
+          <li>OMINAS 創業・福祉施設6事業所運営</li>
+        </ul>
+      </div>
+      <div class="co-msg rv">
+        <div class="kick">Message</div>
+        <h2 class="h">採用は、会社の未来を決める。<br>だから、部分ではなく、ぜんぶを。</h2>
+        <p class="lead-2">私たちは採用支援会社であると同時に、自分たちも現場を運営する事業者です。人が採れない苦しさも、現場の本音も、机の上ではなく現場で知っています。</p>
+        <p class="lead-2">だからこそ、戦略から定着まで責任を持って引き受けられる。採用を、外注先ではなく、同じ現場に立つパートナーとしてご一緒させてください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap rv">
+    <div class="kick">Contact</div>
+    <h2 class="h">採用のお悩み、丸ごと聞かせてください。</h2>
+    <p>何から手をつけるべきか。どこを任せられるか。無料相談で、その場で整理してお伝えします。</p>
+    <div class="hero-cta">
+      <a href="https://forms.gle/VPLuFETVKSXnFNXf6" target="_blank" rel="noopener" class="btn btn-light">無料相談フォームを開く <span class="arr">→</span></a>
+    </div>
+    <div class="small">採用代行・RPO ／ 株式会社OMINAS</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>
+        <a href="#" class="logo"><span class="mk"></span><span class="nm">OMINAS</span></a>
+        <div class="fcorp">
+          <b>株式会社OMINAS</b><br>
+          採用代行・RPO（全業界対応）
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>SERVICES</h5>
+        <a href="https://medi-ho-lp.vercel.app/" target="_blank" rel="noopener">メディホー（医療・福祉）</a>
+        <a href="https://tossup-lp.vercel.app/" target="_blank" rel="noopener">トスアップ（面接代行）</a>
+        <a href="https://genba-scout-lp.vercel.app/" target="_blank" rel="noopener">ゲンバスカウト（建設）</a>
+        <a href="https://spothunter-lp.vercel.app/" target="_blank" rel="noopener">スポットハンター（Timee）</a>
+      </div>
+      <div class="fcol">
+        <h5>MENU</h5>
+        <a href="#services">サービス</a>
+        <a href="#coverage">できること</a>
+        <a href="#reasons">選ばれる理由</a>
+        <a href="#pricing">料金</a>
+        <a href="https://forms.gle/VPLuFETVKSXnFNXf6" target="_blank" rel="noopener">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 OMINAS Inc. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  const rows = Array.from(document.querySelectorAll('#indexcard .idx-row'));
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let i=0;
+    const tick=()=>{
+      rows.forEach((r,k)=>r.classList.toggle('on', k<=i));
+      i=(i+1)%(rows.length+2);
+      if(i===0) rows.forEach(r=>r.classList.remove('on'));
+    };
+    const card=document.getElementById('indexcard');
+    const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){tick();setInterval(tick,600);cio.disconnect();}});},{threshold:.3});
+    cio.observe(card);
+  } else {
+    rows.forEach(r=>r.classList.add('on'));
+  }
+</script>
+</body>
+</html>

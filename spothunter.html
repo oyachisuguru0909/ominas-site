@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>スポットハンター｜働いた人を、そのまま採る。Timee運用代行</title>
+<meta name="description" content="一般応募では獲れない層を、Timeeの“体験”から正社員に。体験勤務がカジュアル面談＋職場見学を兼ね、全職種・採用単価5万円以下（エージェント比1/20以下）を実現する、定額・採り放題のTimee運用代行サービス。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1A1714;
+    --ink-2:#46413A;
+    --muted:#736E66;
+    --paper:#FFFFFF;
+    --paper-2:#FAF7F0;
+    --paper-3:#F4EFE4;
+    --yellow:#FFC400;
+    --yellow-deep:#F0B400;
+    --yellow-soft:#FFF1BF;
+    --line:rgba(26,23,20,.10);
+    --line-2:rgba(26,23,20,.20);
+    --shadow:0 8px 26px rgba(26,23,20,.06);
+    --shadow-lg:0 22px 60px rgba(26,23,20,.10);
+    --font:"Zen Kaku Gothic New",-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+    --maxw:1120px;
+    --r:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font);color:var(--ink);background:var(--paper);
+    line-height:1.85;font-weight:400;font-feature-settings:"palt";
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .mk{background:linear-gradient(transparent 58%, var(--yellow) 58%);padding:0 .06em;}
+
+  /* eyebrow */
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ink-2);}
+  .eyebrow::before{content:"";width:24px;height:3px;border-radius:3px;background:var(--yellow);}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font);font-weight:700;font-size:15.5px;padding:15px 28px;border-radius:100px;border:1.5px solid transparent;cursor:pointer;transition:transform .14s ease,box-shadow .14s ease,background .14s ease;}
+  .btn-primary{background:var(--yellow);color:var(--ink);box-shadow:0 8px 20px rgba(240,180,0,.35);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(240,180,0,.45);background:var(--yellow-deep);}
+  .btn-ghost{background:transparent;border-color:var(--line-2);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+  .btn-arrow::after{content:"→";}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;}
+  .brand{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1.05;}
+  .brand .nm{font-weight:900;font-size:20px;letter-spacing:-.01em;}
+  .brand-tag{font-size:10.5px;font-weight:500;letter-spacing:.03em;color:var(--muted);}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-2);transition:color .15s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav .btn{padding:11px 20px;font-size:14px;}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:8px;}
+  .nav-toggle span{display:block;width:23px;height:2px;background:var(--ink);margin:5px 0;transition:.2s;border-radius:2px;}
+
+  /* hero */
+  .hero{position:relative;padding:96px 0 92px;overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(255,196,0,.30),rgba(255,196,0,0) 68%);z-index:-1;}
+  .hero h1{font-weight:900;letter-spacing:-.02em;font-size:clamp(40px,6.6vw,80px);line-height:1.06;}
+  .hero-sub{font-size:clamp(16px,1.9vw,18.5px);color:var(--ink-2);max-width:33em;margin-top:28px;line-height:1.95;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+  .hero-meta .m{display:flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:14px;font-weight:500;box-shadow:var(--shadow);}
+  .hero-meta .m b{font-weight:900;}
+  .hero-meta .m .ic{width:7px;height:7px;border-radius:50%;background:var(--yellow);}
+
+  /* section base */
+  .section{padding:104px 0;}
+  .section.tight{padding:88px 0;}
+  .section.alt{background:var(--paper-2);}
+  .section-head{max-width:780px;margin-bottom:56px;}
+  .section-head h2{font-weight:900;letter-spacing:-.02em;font-size:clamp(28px,4.2vw,46px);line-height:1.18;margin-top:18px;}
+  .section-head .lead{color:var(--ink-2);font-size:17px;margin-top:20px;line-height:1.95;}
+
+  /* problem cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:32px 28px 34px;box-shadow:var(--shadow);}
+  .card .ix{width:46px;height:46px;border-radius:13px;background:var(--yellow-soft);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;}
+  .card h3{font-weight:700;font-size:19px;margin:20px 0 12px;letter-spacing:-.01em;line-height:1.45;}
+  .card p{color:var(--muted);font-size:14.5px;line-height:1.85;}
+
+  /* feature (仕組み) */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .feat-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px 38px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+  .feat-item::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--yellow);}
+  .feat-item .tag{font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.04em;}
+  .feat-item h3{font-weight:900;font-size:21px;margin:14px 0 14px;letter-spacing:-.01em;line-height:1.4;}
+  .feat-item p{color:var(--ink-2);font-size:15px;line-height:1.9;}
+
+  /* flow (phases) */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .phase{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px 32px;box-shadow:var(--shadow);}
+  .phase-tag{display:inline-block;font-weight:900;font-size:13px;letter-spacing:.06em;color:var(--ink);background:var(--yellow);padding:6px 14px;border-radius:100px;}
+  .phase h3{font-weight:900;font-size:20px;margin:16px 0 18px;letter-spacing:-.01em;}
+  .stp{display:flex;gap:13px;padding:14px 0;border-top:1px dashed var(--line-2);}
+  .stp:first-of-type{border-top:0;}
+  .stp .no{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--yellow);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .stp .tx b{display:block;font-weight:700;font-size:15.5px;letter-spacing:-.01em;}
+  .stp .tx span{display:block;color:var(--muted);font-size:13.5px;line-height:1.7;margin-top:3px;}
+
+  /* cost compare */
+  .cost{background:var(--ink);color:#fff;border-radius:26px;padding:54px 50px;display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center;box-shadow:var(--shadow-lg);}
+  .cost-col .cl{font-size:13.5px;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.6);}
+  .cost-col.bad .big{color:rgba(255,255,255,.55);text-decoration:line-through;text-decoration-thickness:2px;}
+  .cost-col .big{font-weight:900;font-size:clamp(34px,5vw,52px);letter-spacing:-.02em;line-height:1.05;margin-top:12px;}
+  .cost-col .big small{font-size:.4em;font-weight:700;margin-left:4px;letter-spacing:0;}
+  .cost-col.good .big{color:var(--yellow);}
+  .cost-col .sub{font-size:13px;color:rgba(255,255,255,.62);margin-top:12px;line-height:1.7;}
+  .cost-mid{text-align:center;}
+  .cost-badge{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:130px;height:130px;border-radius:50%;background:var(--yellow);color:var(--ink);}
+  .cost-badge .t{font-size:12px;font-weight:700;}
+  .cost-badge .n{font-weight:900;font-size:32px;letter-spacing:-.02em;line-height:1;margin:2px 0;}
+  .cost-foot{margin-top:22px;font-size:13px;color:var(--muted);line-height:1.7;text-align:center;}
+
+  /* closing support */
+  .close-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .close-lead h2{font-weight:900;font-size:clamp(26px,3.8vw,40px);letter-spacing:-.02em;line-height:1.22;margin:16px 0 20px;}
+  .close-lead p{color:var(--ink-2);font-size:16.5px;line-height:1.95;}
+  .close-lead p strong{font-weight:700;}
+  .close-points{display:grid;gap:14px;}
+  .close-pt{display:grid;grid-template-columns:34px 1fr;gap:15px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow);align-items:start;}
+  .close-pt .no{width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--ink);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;}
+  .close-pt h3{margin:2px 0 7px;font-weight:700;font-size:17px;letter-spacing:-.01em;}
+  .close-pt p{margin:0;font-size:14px;color:var(--muted);line-height:1.8;}
+
+  /* stats (運用実績) */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:34px 28px;box-shadow:var(--shadow);text-align:left;}
+  .stat .num{font-weight:900;font-size:clamp(38px,5vw,52px);letter-spacing:-.03em;line-height:1;}
+  .stat .num small{font-size:.42em;font-weight:700;margin-left:5px;letter-spacing:0;}
+  .stat .num .hl{color:var(--yellow-deep);}
+  .stat .lb{font-weight:700;font-size:15px;margin-top:14px;letter-spacing:-.01em;}
+  .stat .ds{color:var(--muted);font-size:13px;margin-top:8px;line-height:1.7;}
+
+  /* industries */
+  .chips{display:flex;flex-wrap:wrap;gap:11px;}
+  .chip{font-size:14.5px;font-weight:500;padding:11px 20px;border:1px solid var(--line-2);border-radius:100px;background:var(--paper);transition:.15s;}
+  .chip:hover{border-color:var(--yellow-deep);background:var(--yellow-soft);}
+  .excl{margin-top:26px;font-size:13px;color:var(--muted);}
+
+  /* pricing */
+  .price-card{border:1.5px solid var(--ink);background:var(--paper);border-radius:24px;padding:50px 46px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;box-shadow:var(--shadow-lg);}
+  .price-card .pl{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ink);background:var(--yellow);padding:5px 14px;border-radius:100px;}
+  .price-card h3{font-weight:900;font-size:26px;margin:16px 0 18px;letter-spacing:-.01em;}
+  .price-card ul{list-style:none;display:grid;gap:11px;}
+  .price-card li{position:relative;padding-left:30px;font-size:15px;color:var(--ink-2);}
+  .price-card li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:50%;background:var(--yellow);}
+  .price-card li::after{content:"";position:absolute;left:5px;top:11px;width:5px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(42deg);}
+  .price-amt{text-align:right;white-space:nowrap;}
+  .price-amt .num{font-weight:900;font-size:clamp(48px,7vw,74px);line-height:1;letter-spacing:-.02em;}
+  .price-amt .num small{font-size:.32em;font-weight:700;margin-left:4px;}
+  .price-amt .tax{font-size:12.5px;color:var(--muted);margin-top:10px;}
+  .price-note{margin-top:20px;font-size:13px;color:var(--muted);line-height:1.7;}
+  .opt{margin-top:22px;padding:22px 26px;border:1px solid var(--line);background:var(--paper-2);border-radius:16px;font-size:14.5px;color:var(--ink-2);line-height:1.85;}
+  .opt b{font-weight:700;}
+
+  /* faq */
+  .faq-item{border-top:1px solid var(--line);padding:28px 0;}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{font-weight:700;font-size:18px;display:flex;gap:14px;letter-spacing:-.01em;align-items:baseline;}
+  .faq-q .qm{color:var(--yellow-deep);font-weight:900;}
+  .faq-a{color:var(--ink-2);font-size:15px;margin:13px 0 0 32px;line-height:1.9;}
+
+  /* final */
+  .final{background:var(--yellow);text-align:center;padding:112px 0;position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;bottom:-200px;left:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5),rgba(255,255,255,0) 66%);}
+  .final .wrap{position:relative;}
+  .final h2{font-weight:900;font-size:clamp(32px,5.4vw,58px);letter-spacing:-.02em;line-height:1.1;margin-top:18px;}
+  .final p{color:var(--ink-2);font-size:17px;margin:22px auto 0;max-width:34em;line-height:1.9;}
+  .final .hero-cta{justify-content:center;margin-top:40px;}
+  .final .btn-primary{background:var(--ink);color:var(--yellow);box-shadow:0 10px 26px rgba(26,23,20,.28);}
+  .final .btn-primary:hover{background:#000;}
+  .final .btn-ghost{border-color:rgba(26,23,20,.35);}
+
+  /* footer */
+  footer.ft{background:var(--ink);color:rgba(255,255,255,.66);padding:48px 0;}
+  .ft-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13.5px;}
+  .ft-inner .brand .nm{color:#fff;}
+  .ft-inner .brand-tag{color:rgba(255,255,255,.55);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* responsive */
+  @media(max-width:920px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+    .cards,.feat,.phases,.stats{grid-template-columns:1fr;}
+    .close-wrap{grid-template-columns:1fr;gap:30px;}
+    .cost{grid-template-columns:1fr;gap:26px;text-align:center;padding:42px 30px;}
+    .cost-col.bad .big{text-align:center;}
+    .price-card{grid-template-columns:1fr;gap:26px;}
+    .price-amt{text-align:left;}
+  }
+  @media(min-width:560px){
+    .cards,.stats{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:920px){
+    .cards,.feat,.phases,.stats{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(max-width:560px){
+    .section{padding:74px 0;}
+    .hero{padding:60px 0 64px;}
+    .hero-cta .btn{flex:1;}
+  }
+  .nav-links.open{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px;}
+  .nav-links.open a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;}
+  .nav-toggle.on span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.on span:nth-child(2){opacity:0;}
+  .nav-toggle.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto;}.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-tag">Timee運用代行サービス</span><span class="nm">スポットハンター</span></a>
+    <nav class="nav-links">
+      <a href="#how">仕組み</a>
+      <a href="#flow">導入の流れ</a>
+      <a href="#cost">採用単価</a>
+      <a href="#proof">運用実績</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="btn btn-primary btn-arrow" href="#contact">無料で相談する</a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('on')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Timee運用代行サービス</span>
+    <h1 style="margin-top:18px;">全職種、採用単価<br><span class="mk">5万円以下。</span></h1>
+    <p class="hero-sub">一般応募では獲れない層を、“体験”から正社員に。Timeeの体験勤務が、カジュアル面談と職場見学を兼ねます。</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-arrow" href="#contact">無料で相談する</a>
+      <a class="btn btn-ghost" href="#how">仕組みを見る</a>
+    </div>
+    <div class="hero-meta">
+      <span class="m"><span class="ic"></span>採用単価 <b>5万円以下</b></span>
+      <span class="m"><span class="ic"></span>エージェント比 <b>1/20以下</b></span>
+      <span class="m"><span class="ic"></span>紹介料 <b>0円</b></span>
+      <span class="m"><span class="ic"></span><b>全業種</b>対応・定額</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section alt" id="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">採用がうまくいかない理由</span>
+      <h2>応募は来ない。来ても、<br>合うかどうかは入社後にわかる。</h2>
+      <p class="lead">求人広告とエージェントに頼る採用は、いま3つの壁にぶつかっています。スポットハンターは、この壁の“順番”を変えて解決します。</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ix">01</div>
+        <h3>“いい人”は<br>応募してこない</h3>
+        <p>本当に採りたい層ほど、いま転職活動をしていません。求人広告は「今すぐ転職したい人」しか拾えず、優秀な準顕在層には一生届きません。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ix">02</div>
+        <h3>面接では<br>働きぶりが見えない</h3>
+        <p>志望動機は練習できても、現場での動きや人当たりは演じられません。採用の本当の判断材料が、選考から抜け落ちています。</p>
+      </div>
+      <div class="card reveal">
+        <div class="ix">03</div>
+        <h3>エージェントは<br>1名100万円〜と高い</h3>
+        <p>採用難の職種ほど手数料は高騰。やっと採っても合わなければ、コストも採用工数も、また一からやり直しです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW / 仕組み -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">サービスの仕組み</span>
+      <h2>「働いてもらう」を、<br>採用の入口にする。</h2>
+      <p class="lead">Timeeで実際に1日働いてもらい、その体験を“最初のカジュアル面談と職場見学”として使います。やることは、たった3つの変化です。</p>
+    </div>
+    <div class="feat">
+      <div class="feat-item reveal">
+        <span class="tag">POINT 1</span>
+        <h3>カジュアル面談と<br>職場見学を兼ねる</h3>
+        <p>体験勤務がそのまま、相互理解の場に。「カジュアル面談→施設見学→面接」の工数が圧縮され、双方が納得した状態で採用に進めます。</p>
+      </div>
+      <div class="feat-item reveal">
+        <span class="tag">POINT 2</span>
+        <h3>準顕在層に<br>現場で出会える</h3>
+        <p>転職活動をしていない“いい人”は、求人広告に応募しません。Timeeなら、その層に体験という低いハードルで接点を作れます。</p>
+      </div>
+      <div class="feat-item reveal">
+        <span class="tag">POINT 3</span>
+        <h3>書類でなく<br>働きぶりで選べる</h3>
+        <p>履歴書や面接ではなく、実際の働きぶり・現場との相性を見て採否を決められる。ミスマッチを、構造から減らします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="section alt" id="flow">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">導入の流れ</span>
+      <h2>運用前から採用まで、<br>すべて代行します。</h2>
+      <p class="lead">貴社がやるのは、現場で受け入れて、最後に「採る／採らない」を決めるだけ。準備から見極めまで、こちらで回します。</p>
+    </div>
+    <div class="phases">
+      <div class="phase reveal">
+        <span class="phase-tag">運用前｜準備</span>
+        <h3>採れる求人を、<br>こちらで設計</h3>
+        <div class="stp"><span class="no">1</span><span class="tx"><b>無料ヒアリング</b><span>ターゲット・採用要件・現場の体制を確認します。</span></span></div>
+        <div class="stp"><span class="no">2</span><span class="tx"><b>求人設計・掲載準備</b><span>反応が出る求人原稿と、受け入れ・評価の導線を整備。</span></span></div>
+      </div>
+      <div class="phase reveal">
+        <span class="phase-tag">運用｜体験</span>
+        <h3>働いてもらい、<br>見極める</h3>
+        <div class="stp"><span class="no">3</span><span class="tx"><b>体験勤務（面談＋見学）</b><span>Timeeで1日勤務。現場の雰囲気と相性を相互に確認。</span></span></div>
+        <div class="stp"><span class="no">4</span><span class="tx"><b>現場で“当たり”を見極め</b><span>働きぶり・人柄・定着可能性を評価し、声をかける人を特定。</span></span></div>
+      </div>
+      <div class="phase reveal">
+        <span class="phase-tag">採用｜クロージング</span>
+        <h3>14年のノウハウで、<br>採用までつなぐ</h3>
+        <div class="stp"><span class="no">5</span><span class="tx"><b>クロージング支援</b><span>口説き方・後追い文面まで設計し、面談・採用へ。</span></span></div>
+        <div class="stp"><span class="no">6</span><span class="tx"><b>直接雇用（紹介料0円）</b><span>そのまま正社員・パートへ。Timeeへの紹介料は0円。</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="section" id="cost">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">採用単価</span>
+      <h2>採用単価は、<span class="mk">エージェントの1/20以下。</span></h2>
+      <p class="lead">発生するのは体験勤務の人件費とTimee手数料だけ。高額な成果報酬は、もう必要ありません。</p>
+    </div>
+    <div class="cost reveal">
+      <div class="cost-col bad">
+        <div class="cl">従来：人材エージェント</div>
+        <div class="big">約100<small>万円〜</small></div>
+        <div class="sub">1名採用あたり。年収の30〜35%が手数料として固定で発生。</div>
+      </div>
+      <div class="cost-mid">
+        <div class="cost-badge"><span class="t">採用単価</span><span class="n">1/20</span><span class="t">以下に</span></div>
+      </div>
+      <div class="cost-col good">
+        <div class="cl">スポットハンター</div>
+        <div class="big">5万円<small>以下</small></div>
+        <div class="sub">1勤務 約6,630円（時給＋交通費＋手数料）× 約7名体験で1名採用の想定（約46,000円）。</div>
+      </div>
+    </div>
+    <p class="cost-foot">※ Timeeワーカーの直接雇用に紹介料は発生しません（Timee社へも0円）。掲載自体も無料です。</p>
+  </div>
+</section>
+
+<!-- CLOSING SUPPORT -->
+<section class="section alt" id="closing">
+  <div class="wrap close-wrap">
+    <div class="close-lead reveal">
+      <span class="eyebrow">クロージング支援</span>
+      <h2>見極めて、終わりにしない。<br><span class="mk">採用まで、必ずつなぐ。</span></h2>
+      <p>体験で“当たり”を見つけても、声のかけ方ひとつで採用は決まりも、逃しもします。いちばんの肝はクロージング。<strong>ヘッドハンティング歴14年のノウハウ</strong>で、どう口説き、どうクロージングするかまで徹底的にサポートし、確実に採用までつなげます。</p>
+    </div>
+    <div class="close-points reveal">
+      <div class="close-pt"><span class="no">1</span><div><h3>口説きの設計図を渡す</h3><p>誰に・いつ・何を伝えるか。タイプ別トーク、代表からの架電スクリプト、断られにくい言い回しまで用意します。</p></div></div>
+      <div class="close-pt"><span class="no">2</span><div><h3>後追いを仕組み化する</h3><p>“その場で決めない人”こそ採れます。LINE・電話の後追い文面と、面談へ進める分岐フローまで設計します。</p></div></div>
+      <div class="close-pt"><span class="no">3</span><div><h3>必要なら、口説きも代行</h3><p>動く時間がなければ、面接代行やレター型スカウトで、クロージングごと巻き取ることもできます。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF / 運用実績 -->
+<section class="section" id="proof">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">運用実績</span>
+      <h2>体験から採用へ。<br>数字で出ています。</h2>
+      <p class="lead">大手から採用難の有資格職まで、「体験勤務を起点にした採用」は確かな成果を生んでいます。</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="num">92<small>名</small></div>
+        <div class="lb">1年で正社員化</div>
+        <div class="ds">大手運送会社での実績。年間採用の約10%を体験勤務経由で確保。</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="hl">99</span><small>%</small></div>
+        <div class="lb">体験満足度「また働きたい」</div>
+        <div class="ds">体験したワーカーの評価。好印象が、そのまま採用につながる。</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">12<small>名</small></div>
+        <div class="lb">半年で長期採用</div>
+        <div class="ds">福祉企業で、社員4名・パート8名を体験経由で長期採用した事例。</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="hl">7</span><small>割超</small></div>
+        <div class="lb">体験後「業界で働きたい」</div>
+        <div class="ds">未経験層への意識調査。体験が、就業意欲を大きく引き上げる。</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num">約2<small>時間</small></div>
+        <div class="lb">採用工数を削減（1人あたり）</div>
+        <div class="ds">体験が面談・見学の代替に。人事の選考フローが短縮される。</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><span class="hl">1/20</span><small>以下</small></div>
+        <div class="lb">採用単価（エージェント比）</div>
+        <div class="ds">成果報酬が不要になり、採用コストを劇的に圧縮できる。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section alt" id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">対象業種</span>
+      <h2>現場がある仕事なら、<br>業種を選びません。</h2>
+      <p class="lead">時給帯でTimeeに人が動いている職種なら、どの業界でも機能します。営業から事務、医療福祉、現場まで横断して使えます。</p>
+    </div>
+    <div class="chips reveal">
+      <span class="chip">営業</span>
+      <span class="chip">バックオフィス・事務</span>
+      <span class="chip">医療・介護</span>
+      <span class="chip">障害福祉</span>
+      <span class="chip">飲食・サービス</span>
+      <span class="chip">運送・配送</span>
+      <span class="chip">工場・製造</span>
+      <span class="chip">建設・現場</span>
+      <span class="chip">塾・教育</span>
+      <span class="chip">インストラクター・ジム</span>
+      <span class="chip">小売・販売</span>
+      <span class="chip">清掃・施設管理</span>
+    </div>
+    <p class="excl reveal">※ 医師・士業・コンサル等のハイレイヤー職は、Timeeの母集団が薄いため対象外です。</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="price">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">料金</span>
+      <h2>定額・採り放題。<br>何人採っても、料金は変わらない。</h2>
+    </div>
+    <div class="price-card reveal">
+      <div>
+        <span class="pl">運用代行プラン</span>
+        <h3>Timee運用 まるごと代行</h3>
+        <ul>
+          <li>Timee求人の設計・掲載・運用</li>
+          <li>受け入れ導線・評価シートの整備</li>
+          <li>“当たり”の見極め・レポート</li>
+          <li>クロージング方法のサポート</li>
+          <li>採用人数の上限なし（採り放題）</li>
+        </ul>
+      </div>
+      <div class="price-amt">
+        <div class="num">10<small>万円/月</small></div>
+        <div class="tax">税抜・完全定額</div>
+      </div>
+    </div>
+    <p class="price-note reveal">※ Timeeの実費（ワーカー報酬の30%＋ワーカー1人あたり月220円の振込手数料）は、貴社からTimeeへ直接お支払いいただきます。掲載自体は無料です。</p>
+    <div class="opt reveal"><b>オプション：口説き代行。</b>「採りたいのに、相手が迷っている」場面には、面接代行（TossUp）やレター型スカウト（メディレター）で、14年のヘッドハンターが直接クロージングします。</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section alt" id="faq">
+  <div class="wrap" style="max-width:880px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">よくある質問</span>
+      <h2>気になる点に、先に答えます。</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">Q.</span><span>Timeeの規約的に問題はありませんか？</span></div>
+        <p class="faq-a">問題ありません。「面接・面談だけを目的とした利用」は規約で禁止されていますが、本サービスは実際にスポット業務を依頼し、その勤務実績を踏まえて直接雇用する設計です。規約が前提とする“正しい使い方”に沿っています。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">Q.</span><span>採用したら紹介料はかかりますか？</span></div>
+        <p class="faq-a">かかりません。Timeeワーカーを直接雇用しても、Timee社への紹介料は0円です。採用コストを抑えながら、見極めた人を確保できます。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">Q.</span><span>何人まで採用できますか？</span></div>
+        <p class="faq-a">上限はありません。定額・採り放題です。Timeeで反応が出る限り、何人見極めて何人採っても、月額は変わりません。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">Q.</span><span>どんな職種で使えますか？</span></div>
+        <p class="faq-a">現場・サービス・事務・医療福祉・運送・製造など、時給帯で母集団がある職種全般です。医師・士業・コンサル等のハイレイヤー職は、Timeeに母集団が少ないため対象外としています。</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">Q.</span><span>自社の手間はどれくらいですか？</span></div>
+        <p class="faq-a">現場で受け入れていただくことと、最後に採否を決めていただくことだけです。求人設計・掲載・運用・見極めの仕組みづくりは、すべてこちらで代行します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;">無料相談</span>
+    <h2>まずは、“採れるかどうか”を<br>見極めます。</h2>
+    <p>貴社の職種でTimeeに母集団があるか、どんな求人なら反応が出るか。最初の見立てまで無料でお出しします。相談だけでも歓迎です。</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-arrow" href="https://forms.gle/HieeyfaFbnftY7L87" target="_blank" rel="noopener">無料相談に申し込む</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap ft-inner">
+    <a class="brand" href="#top"><span class="brand-tag">Timee運用代行サービス</span><span class="nm">スポットハンター</span></a>
+    <span>運営会社：(株)OMINAS</span>
+    <span>© 2026 OMINAS Inc.</span>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+</script>
+</body>
+</html>
