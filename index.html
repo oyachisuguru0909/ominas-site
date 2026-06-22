@@ -58,9 +58,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 64px;display:fl
 .page-pad{padding-top:120px}
 
 /* hero */
-.hero{min-height:100vh;padding:0 64px;position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg)}
+.hero{min-height:100vh;padding:88px 64px 48px;position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg)}
 .hero-vertical{text-align:center}
-.hero h1{writing-mode:vertical-rl;-webkit-writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(28px,3vw,42px);line-height:2.7;letter-spacing:.42em;color:var(--dark);margin:0 auto;display:inline-block;text-align:start}
+.hero h1{writing-mode:vertical-rl;-webkit-writing-mode:vertical-rl;font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(24px,2.4vw,34px);line-height:2.7;letter-spacing:.3em;color:var(--dark);margin:0 auto;display:inline-block;text-align:start}
 .hero h1 .accent{font-weight:400}
 #page-home.active .hero-vertical{opacity:0;animation:fadeUp 1.6s .3s ease forwards}
 #page-home.active .hero-meta{opacity:0;animation:fadeUp 1.6s 1.1s ease forwards}
@@ -222,6 +222,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:84px 64px 44px}
   #page-home.active .hero-vertical,#page-home.active .hero-meta,#page-home.active .scroll-hint{animation:none;opacity:1}
   .scroll-hint .line::before{animation:none}
 }
+@media (max-height:720px){.hero h1{font-size:26px;letter-spacing:.22em}}
 :focus-visible{outline:1px solid var(--dark);outline-offset:4px}
 </style>
 </head>
