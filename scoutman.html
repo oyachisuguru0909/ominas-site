@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>スカウトマン｜完全成果報酬型 スカウトメール代行 - OMINAS</title>
+<meta name="description" content="完全成果報酬型のスカウトメール代行。スカウト送信は当社が代行し、応募・面接・採用は貴社が直接。費用は採用が決まってからだけ。全職種対応。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0A1730;
+    --navy-2:#0F2044;
+    --navy-3:#16294C;
+    --ink:#0C1A36;
+    --ink-2:#33415C;
+    --slate:#5F6D88;
+    --gold:#C2A25E;
+    --gold-2:#D9C79A;
+    --gold-d:#A6853F;
+    --paper:#FFFFFF;
+    --paper-2:#F5F7FB;
+    --ivory:#FBFAF6;
+    --line-l:#E4E8F0;
+    --line-d:rgba(255,255,255,.10);
+    --on-navy:#DCE3F0;
+    --on-navy-2:#A7B4CD;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--paper);line-height:1.9;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:"Noto Sans JP",serif;color:var(--ink);font-weight:600;letter-spacing:.02em;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-family:"Noto Sans JP",serif;font-weight:600;letter-spacing:.06em;font-size:17px;color:var(--gold-d);}
+  .kicker{font-family:"Noto Sans JP",serif;letter-spacing:.28em;text-transform:uppercase;font-size:12px;font-weight:600;color:var(--gold-d);font-style:normal;}
+  svg.ic{width:24px;height:24px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;display:block;}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:"Noto Sans JP";font-weight:700;font-size:14.5px;letter-spacing:.02em;padding:16px 34px;border-radius:2px;transition:background .18s,color .18s,border-color .18s,transform .18s;cursor:pointer;border:1px solid transparent;}
+  .btn svg.ic{width:18px;height:18px;stroke-width:2;}
+  .btn-gold{background:var(--gold);color:var(--navy);}
+  .btn-gold:hover{background:var(--gold-2);transform:translateY(-1px);}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .btn-navy:hover{background:var(--navy-2);transform:translateY(-1px);}
+  .btn-line{background:transparent;color:var(--on-navy);border-color:rgba(255,255,255,.28);}
+  .btn-line:hover{border-color:var(--gold);color:var(--gold-2);}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(10,23,48,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{width:34px;height:34px;background:var(--gold);display:flex;align-items:center;justify-content:center;}
+  .brand .mark svg{width:18px;height:18px;stroke:var(--navy);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .brand .wm{line-height:1.15;}
+  .brand .wm .n{font-family:"Noto Sans JP";font-weight:600;font-size:18px;letter-spacing:.04em;color:#fff;}
+  .brand .wm .p{font-family:"Noto Sans JP";font-size:11px;letter-spacing:.22em;color:var(--gold-2);text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:36px;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--on-navy);transition:color .15s;}
+  .nav-links a:hover{color:var(--gold-2);}
+  .nav-links .btn{padding:11px 24px;font-size:13.5px;}
+  .nav-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px;}
+
+  /* DARK / LIGHT SECTIONS */
+  section{padding:110px 0;}
+  .dark{background:var(--navy);color:var(--on-navy);}
+  .dark h1,.dark h2,.dark h3{color:#fff;}
+  .light-2{background:var(--paper-2);}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:104px 0 112px;}
+  .hero::before{content:"";position:absolute;top:-30%;right:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle, rgba(194,162,94,.10), rgba(194,162,94,0) 62%);pointer-events:none;}
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center;position:relative;}
+  .hero .kicker{margin-bottom:22px;display:inline-block;}
+  .hero .kicker::before{content:"";display:inline-block;width:26px;height:1px;background:var(--gold);vertical-align:middle;margin-right:12px;margin-bottom:3px;}
+  .hero h1{font-size:clamp(32px,4.5vw,52px);line-height:1.48;font-weight:600;margin-bottom:28px;}
+  .hero h1 .hl{color:var(--gold-2);font-family:"Noto Sans JP";}
+  .hero p.lead{font-size:16px;color:var(--on-navy-2);max-width:520px;margin-bottom:38px;line-height:2.1;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-note{margin-top:28px;font-size:13.5px;color:var(--on-navy);display:flex;align-items:center;gap:10px;}
+  .hero-note svg.ic{width:18px;height:18px;color:var(--gold);stroke-width:2;flex:none;}
+  .trust{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-d);}
+  .trust .tl{font-family:"Noto Sans JP";font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2);margin-bottom:13px;}
+  .trust .items{display:flex;flex-wrap:wrap;gap:10px 22px;}
+  .trust .items span{font-size:13.5px;font-weight:500;color:var(--on-navy);display:flex;align-items:center;gap:8px;}
+  .trust .items span::before{content:"";width:4px;height:4px;background:var(--gold);transform:rotate(45deg);}
+
+  /* HERO CARD */
+  .pcard{background:var(--ivory);border-radius:4px;padding:10px;box-shadow:0 50px 90px -40px rgba(0,0,0,.6);border:1px solid rgba(194,162,94,.28);}
+  .pcard-head{padding:22px 24px 18px;border-bottom:1px solid var(--line-l);}
+  .pcard-head .t{font-family:"Noto Sans JP";font-size:15px;font-weight:600;color:var(--ink);}
+  .pcard-head .s{font-size:12px;color:var(--slate);margin-top:3px;}
+  .prow{display:flex;align-items:center;gap:16px;padding:17px 24px;}
+  .prow + .prow{border-top:1px solid var(--line-l);}
+  .prow .pi{flex:none;width:42px;height:42px;border-radius:3px;background:#F1EEE4;display:flex;align-items:center;justify-content:center;color:var(--gold-d);}
+  .prow .pi svg.ic{width:21px;height:21px;}
+  .prow .pt{flex:1;}
+  .prow .pt .a{font-size:14px;font-weight:700;color:var(--ink);font-family:"Noto Sans JP";}
+  .prow .pt .b{font-size:11.5px;color:var(--slate);}
+  .zero{font-family:"Noto Sans JP";font-weight:600;font-size:19px;color:#B7BECC;}
+  .prow.paid{background:var(--navy);border-radius:3px;margin:6px;}
+  .prow.paid .pi{background:var(--gold);color:var(--navy);}
+  .prow.paid .pt .a{color:#fff;}
+  .prow.paid .pt .b{color:var(--on-navy-2);}
+  .pay{font-family:"Noto Sans JP";font-weight:700;font-size:13px;color:var(--navy);background:var(--gold);padding:8px 15px;border-radius:2px;}
+
+  /* SEC HEAD */
+  .sec-head{text-align:center;max-width:700px;margin:0 auto 66px;}
+  .sec-head .kicker{margin-bottom:16px;display:inline-block;}
+  .sec-head h2{font-size:clamp(26px,3vw,36px);line-height:1.5;}
+  .sec-head p{color:var(--slate);font-size:16px;margin-top:16px;}
+  .dark .sec-head p{color:var(--on-navy-2);}
+
+  /* VALUES */
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .vcard{background:#fff;border:1px solid var(--line-l);border-radius:4px;padding:40px 34px;transition:border-color .2s,transform .2s;}
+  .vcard:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .vcard .vi{width:52px;height:52px;border-radius:3px;background:#F4EFE3;display:flex;align-items:center;justify-content:center;color:var(--gold-d);margin-bottom:26px;}
+  .vcard .vi svg.ic{width:26px;height:26px;stroke-width:1.5;}
+  .vcard h3{font-size:20px;margin-bottom:14px;font-weight:600;}
+  .vcard p{color:var(--slate);font-size:14.5px;line-height:2.05;}
+
+  /* PROBLEMS (dark) */
+  .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:920px;margin:0 auto;}
+  .prob{display:flex;gap:16px;align-items:center;background:var(--navy-3);border:1px solid var(--line-d);border-radius:4px;padding:24px 28px;}
+  .prob svg.ic{width:22px;height:22px;color:var(--gold);flex:none;stroke-width:1.6;}
+  .prob span{font-size:15px;font-weight:500;color:var(--on-navy);line-height:1.7;}
+
+  /* FLOW */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);}
+  .fstep{padding:0 30px;position:relative;}
+  .fstep:first-child{padding-left:0;}
+  .fstep:last-child{padding-right:0;}
+  .fstep + .fstep{border-left:1px solid var(--line-l);}
+  .fstep .fnum{font-family:"Noto Sans JP";font-size:15px;letter-spacing:.14em;color:var(--gold-d);margin-bottom:18px;}
+  .fstep .ficon{width:46px;height:46px;border-radius:3px;background:#F4EFE3;display:flex;align-items:center;justify-content:center;color:var(--gold-d);margin-bottom:20px;}
+  .fstep .ficon svg.ic{width:22px;height:22px;stroke-width:1.6;}
+  .fstep h3{font-size:17px;margin-bottom:12px;font-weight:600;}
+  .fstep p{color:var(--slate);font-size:14px;line-height:1.95;}
+
+  /* TIMELINE (flow) */
+  .tl{max-width:780px;margin:0 auto;position:relative;}
+  .tl::before{content:"";position:absolute;left:23px;top:12px;bottom:12px;width:1px;background:var(--line-l);}
+  .tl-step{position:relative;display:flex;gap:24px;padding-bottom:38px;}
+  .tl-step:last-child{padding-bottom:0;}
+  .tl-dot{flex:none;width:48px;height:48px;border-radius:3px;background:#F4EFE3;border:1px solid rgba(194,162,94,.35);display:flex;align-items:center;justify-content:center;color:var(--gold-d);position:relative;z-index:1;}
+  .tl-dot svg.ic{width:22px;height:22px;stroke-width:1.6;}
+  .tl-step.pay .tl-dot{background:var(--navy);border-color:var(--navy);color:var(--gold-2);}
+  .tl-body{flex:1;padding-top:3px;}
+  .tl-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+  .tl-num{font-family:"Noto Sans JP";font-size:13px;letter-spacing:.16em;color:var(--gold-d);}
+  .tl-body h3{font-size:18px;font-weight:600;letter-spacing:.02em;}
+  .tl-tag{font-family:"Noto Sans JP";font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:4px 11px;border-radius:2px;}
+  .tag-ominas{background:#F4EFE3;color:var(--gold-d);}
+  .tag-client{background:#EDF1F7;color:var(--ink-2);}
+  .tag-pay{background:var(--navy);color:var(--gold-2);}
+  .tl-cost{margin-left:auto;font-family:"Noto Sans JP";font-weight:600;font-size:17px;color:#B7BECC;}
+  .tl-step.pay .tl-cost{color:var(--gold-d);}
+  .tl-body p{color:var(--slate);font-size:14px;line-height:1.95;}
+  .tl-note{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:9px 15px;background:#FBF7EE;border:1px solid rgba(194,162,94,.32);border-radius:3px;font-size:12.5px;color:var(--gold-d);font-weight:500;}
+  .tl-note svg.ic{width:15px;height:15px;stroke-width:2;flex:none;}
+  @media(max-width:560px){.tl-cost{margin-left:0;}.tl-top{gap:8px;}}
+
+  /* PRICE (dark) */
+  .price-wrap{max-width:720px;margin:0 auto;}
+  .price-main{border:1px solid rgba(194,162,94,.4);border-radius:4px;padding:58px 44px;text-align:center;position:relative;}
+  .price-main .pm-e{font-family:"Noto Sans JP";letter-spacing:.22em;font-size:12px;text-transform:uppercase;color:var(--gold-2);}
+  .price-main .pm-big{font-family:"Noto Sans JP";font-weight:700;font-size:clamp(40px,5.6vw,60px);line-height:1.1;margin:14px 0 8px;color:#fff;letter-spacing:.01em;}
+  .price-main .pm-big small{font-size:28px;}
+  .price-main .pm-big .pct{color:var(--gold-2);}
+  .price-main .pm-desc{color:var(--on-navy-2);font-size:15px;}
+  .price-main .pm-rule{width:40px;height:1px;background:var(--gold);margin:28px auto 0;}
+  .price-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+  .pfeat{background:var(--navy-3);border:1px solid var(--line-d);border-radius:4px;padding:26px 18px;text-align:center;}
+  .pfeat .pfi{width:44px;height:44px;border-radius:3px;background:rgba(194,162,94,.12);display:flex;align-items:center;justify-content:center;color:var(--gold-2);margin:0 auto 13px;}
+  .pfeat .pfi svg.ic{width:21px;height:21px;stroke-width:1.6;}
+  .pfeat .pft{font-family:"Noto Sans JP";font-weight:700;font-size:14.5px;color:#fff;margin-bottom:5px;}
+  .pfeat .pfs{font-size:12.5px;color:var(--on-navy-2);line-height:1.7;}
+
+  /* WHY */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;}
+  .why .wn{font-family:"Noto Sans JP";font-weight:600;font-size:34px;color:var(--gold);line-height:1;margin-bottom:18px;}
+  .why h3{font-size:18px;margin-bottom:14px;font-weight:600;padding-bottom:18px;border-bottom:1px solid var(--line-l);}
+  .why p{color:var(--slate);font-size:14.5px;line-height:2.05;}
+
+  /* FAQ */
+  .faq-wrap{max-width:760px;margin:0 auto;}
+  .faq{border-bottom:1px solid var(--line-l);}
+  .faq summary{list-style:none;cursor:pointer;padding:28px 4px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-family:"Noto Sans JP";font-weight:600;font-size:16.5px;color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary .qi{flex:none;width:22px;height:22px;color:var(--gold-d);transition:transform .22s;}
+  .faq[open] summary .qi{transform:rotate(45deg);}
+  .faq .ans{padding:0 4px 28px;color:var(--slate);font-size:14.5px;line-height:2.05;max-width:660px;}
+
+  /* CTA (dark) */
+  .cta{text-align:center;position:relative;overflow:hidden;}
+  .cta::before{content:"";position:absolute;left:50%;top:-40%;transform:translateX(-50%);width:760px;height:560px;background:radial-gradient(circle, rgba(194,162,94,.14), rgba(194,162,94,0) 62%);pointer-events:none;}
+  .cta .wrap{position:relative;}
+  .cta .kicker{margin-bottom:18px;display:inline-block;}
+  .cta h2{font-size:clamp(27px,3.4vw,40px);margin-bottom:18px;line-height:1.5;}
+  .cta p{color:var(--on-navy-2);font-size:16px;margin-bottom:38px;}
+
+  /* FOOTER */
+  footer{background:#07122A;color:#8496B4;padding:58px 0 40px;}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;}
+  .foot-b .n{font-family:"Noto Sans JP";font-weight:600;font-size:19px;color:#fff;letter-spacing:.03em;}
+  .foot-b .s{font-size:12.5px;color:#71829F;margin-top:6px;}
+  .foot-back{font-size:14px;color:#9DAECB;display:inline-flex;align-items:center;gap:9px;transition:color .15s;}
+  .foot-back:hover{color:var(--gold-2);}
+  .foot-back svg.ic{width:17px;height:17px;stroke-width:2;}
+  .foot-copy{width:100%;border-top:1px solid rgba(255,255,255,.09);margin-top:8px;padding-top:24px;font-size:12.5px;color:#5E6F8C;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:52px;}
+    .values,.why-grid,.price-feats,.prob-grid{grid-template-columns:1fr;}
+    .flow{grid-template-columns:1fr 1fr;gap:36px 0;}
+    .fstep{padding:0 24px;}
+    .fstep:nth-child(odd){padding-left:0;border-left:none;}
+    .fstep:nth-child(3){border-left:none;}
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+    section{padding:76px 0;}
+    .hero{padding:64px 0 76px;}
+  }
+  @media(max-width:560px){
+    .flow{grid-template-columns:1fr;}
+    .fstep{padding:0;border-left:none!important;}
+    .price-feats{grid-template-columns:1fr;}
+    .hero-cta{flex-direction:column;}
+    .hero-cta .btn{justify-content:center;}
+    .price-main{padding:44px 26px;}
+  }
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+</style>
+</head>
+<body id="top">
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark"><svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></span>
+      <span class="wm"><span class="n">スカウトマン</span><span class="p">Scoutman · OMINAS</span></span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#service">サービス</a>
+      <a href="#flow">ご利用の流れ</a>
+      <a href="#price">料金</a>
+      <a href="#faq">よくある質問</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqT00X983KS3SLRL29fTPInLSdsSXQ9No0nEo8Avf7_p__YQ/viewform" target="_blank" rel="noopener" class="btn btn-gold">お問い合わせ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="メニュー"><svg class="ic" viewBox="0 0 24 24" style="width:26px;height:26px;"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero dark">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">完全成果報酬型 スカウトメール代行</span>
+        <h1>スカウト送信を、まるごと代行。<br>費用は<span class="hl">採用が決まってから</span>。</h1>
+        <p class="lead">母集団へのスカウト送信は当社が代行します。応募・面接・採用のご対応は貴社が直接。採用が決まったときにだけ採用代行費をいただく、完全成果報酬型のサービスです。</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-gold">無料で相談する <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#service" class="btn btn-line">サービスを見る</a>
+        </div>
+        <div class="hero-note"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>採用が決まるまで、初期費用・月額費用は一切かかりません。</div>
+        <div class="trust">
+          <div class="tl">対応領域</div>
+          <div class="items"><span>医療・福祉</span><span>建設・現場</span><span>事務・営業</span><span>販売・サービス</span><span>その他 全職種</span></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pcard">
+          <div class="pcard-head"><div class="t">費用が発生するタイミング</div><div class="s">採用に至るまで、ご請求は発生しません。</div></div>
+          <div class="prow">
+            <span class="pi"><svg class="ic" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></span>
+            <span class="pt"><span class="a">スカウト準備・送付を代行</span><span class="b">ヒアリング・文面生成・リスト作成・送付</span></span>
+            <span class="zero">¥0</span>
+          </div>
+          <div class="prow">
+            <span class="pi"><svg class="ic" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg></span>
+            <span class="pt"><span class="a">応募</span><span class="b">候補者は貴社へ直接応募</span></span>
+            <span class="zero">¥0</span>
+          </div>
+          <div class="prow">
+            <span class="pi"><svg class="ic" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <span class="pt"><span class="a">面接・選考</span><span class="b">貴社で対応</span></span>
+            <span class="zero">¥0</span>
+          </div>
+          <div class="prow paid">
+            <span class="pi"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></span>
+            <span class="pt"><span class="a">採用</span><span class="b">ここで初めて費用が発生</span></span>
+            <span class="pay">成果報酬</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section id="service">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Why Scoutman</span>
+        <h2>採用が決まるまで、リスクゼロ。</h2>
+        <p>「スカウトを打ちたいが人手がない」を、完全成果報酬でまるごと解決します。</p>
+      </div>
+      <div class="values">
+        <div class="vcard reveal">
+          <div class="vi"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 8.5 12 12l3-3.5M12 12v4M9.8 13.5h4.4M9.8 15.3h4.4"/></svg></div>
+          <h3>採用まで費用ゼロ</h3>
+          <p>完全成果報酬型。初期費用も月額費用もかからず、採用が決まったときにだけ費用が発生します。使わなければ0円です。</p>
+        </div>
+        <div class="vcard reveal">
+          <div class="vi"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3"/></svg></div>
+          <h3>全職種に対応</h3>
+          <p>医療・福祉から建設・現場職、事務、営業、販売まで。業種・職種を問わず、貴社の採用ターゲットに合わせて対応します。</p>
+        </div>
+        <div class="vcard reveal">
+          <div class="vi"><svg class="ic" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4.5v4h-4"/></svg></div>
+          <h3>貴社の工数はほぼゼロ</h3>
+          <p>送信対象の見極めから文面作成、送信まで当社が代行。貴社は応募が来た候補者の面接に集中していただけます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="dark">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Challenges</span>
+        <h2>採用のこんな課題、ありませんか</h2>
+      </div>
+      <div class="prob-grid">
+        <div class="prob reveal"><svg class="ic" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg><span>スカウトを打ちたいが、運用する人手も時間もない</span></div>
+        <div class="prob reveal"><svg class="ic" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg><span>媒体は契約したものの、使いこなせず放置している</span></div>
+        <div class="prob reveal"><svg class="ic" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg><span>採用できるか分からないのに、固定費を払い続けたくない</span></div>
+        <div class="prob reveal"><svg class="ic" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg><span>応募がなかなか集まらず、母集団形成に苦戦している</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section id="flow">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">How it works</span>
+        <h2>ヒアリングから採用決定まで</h2>
+        <p>貴社の負担を最小限に。送信はすべてお任せください。</p>
+      </div>
+      <div class="tl">
+        <div class="tl-step reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 01</span><h3>事業・ポジションのヒアリング</h3><span class="tl-tag tag-ominas">当社が対応</span><span class="tl-cost">¥0</span></div>
+            <p>貴社の事業内容やポジションの魅力、募集の背景を丁寧にお伺いします。ここが、刺さるスカウトの起点になります。</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 02</span><h3>スカウト文面の生成</h3><span class="tl-tag tag-ominas">当社が対応</span><span class="tl-cost">¥0</span></div>
+            <p>ヒアリング内容をもとに、返信を引き出すスカウト文面を作成します。</p>
+            <span class="tl-note"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>ヘッドハンティング歴14年のノウハウを凝縮</span>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 03</span><h3>送付リストの作成</h3><span class="tl-tag tag-ominas">当社が対応</span><span class="tl-cost">¥0</span></div>
+            <p>ターゲット像に合致する候補者を見極め、送付リストを作成します。</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 04</span><h3>スカウトの送付</h3><span class="tl-tag tag-ominas">当社が対応</span><span class="tl-cost">¥0</span></div>
+            <p>貴社のアカウントから、リストの候補者へスカウトを送付します。</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="4"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 05</span><h3>応募</h3><span class="tl-tag tag-client">貴社が対応</span><span class="tl-cost">¥0</span></div>
+            <p>候補者は貴社へ直接応募します。やり取りは貴社に直接届きます。</p>
+          </div>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 06</span><h3>面接・選考</h3><span class="tl-tag tag-client">貴社が対応</span><span class="tl-cost">¥0</span></div>
+            <p>面接・選考は貴社で行っていただきます。</p>
+          </div>
+        </div>
+        <div class="tl-step pay reveal">
+          <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></div>
+          <div class="tl-body">
+            <div class="tl-top"><span class="tl-num">STEP 07</span><h3>採用</h3><span class="tl-tag tag-pay">お支払い</span><span class="tl-cost">成果報酬</span></div>
+            <p>採用が決まって初めて、採用代行費が発生します。それまでの費用は一切かかりません。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section id="price" class="dark">
+    <div class="wrap price-wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Pricing</span>
+        <h2>分かりやすい、完全成果報酬型</h2>
+      </div>
+      <div class="price-main reveal">
+        <div class="pm-e">採用代行費</div>
+        <div class="pm-big">理論年収の <span class="pct">15<small>%</small></span></div>
+        <div class="pm-desc">採用1名につき、採用代行費としていただきます。採用が決まるまで費用は一切かかりません。</div>
+        <div class="pm-rule"></div>
+      </div>
+      <div class="price-feats">
+        <div class="pfeat reveal"><span class="pfi"><svg class="ic" viewBox="0 0 24 24"><path d="M20.6 13.4 12 22l-9-9V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></span><div class="pft">初期費用 0円</div><div class="pfs">導入時の費用はかかりません</div></div>
+        <div class="pfeat reveal"><span class="pfi"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span><div class="pft">月額費用 0円</div><div class="pfs">固定のランニングコストなし</div></div>
+        <div class="pfeat reveal"><span class="pfi"><svg class="ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z"/></svg></span><div class="pft">ご相談は無料</div><div class="pfs">まずはお気軽にご相談ください</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">Our strength</span>
+        <h2>スカウトマンが選ばれる理由</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why reveal">
+          <div class="wn">01</div>
+          <h3>14年以上の採用支援ノウハウ</h3>
+          <p>ヘッドハンティングから採用代行まで、長年培った候補者への訴求力とスカウト設計のノウハウがあります。</p>
+        </div>
+        <div class="why reveal">
+          <div class="wn">02</div>
+          <h3>複数媒体を横断した運用</h3>
+          <p>特定の媒体に依存せず、貴社がご利用中のスカウト媒体に合わせて柔軟に運用を代行します。</p>
+        </div>
+        <div class="why reveal">
+          <div class="wn">03</div>
+          <h3>医療・福祉から現場職まで</h3>
+          <p>専門性の高い職種から一般職まで、幅広い領域での採用支援実績をもとに対応します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="light-2">
+    <div class="wrap faq-wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">FAQ</span>
+        <h2>よくあるご質問</h2>
+      </div>
+      <details class="faq reveal"><summary>本当に採用まで費用はかからないの？<span class="qi"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></summary><div class="ans">はい。完全成果報酬型のため、採用が決まるまで初期費用・月額費用は一切いただきません。採用が決まったときにのみ採用代行費が発生します。</div></details>
+      <details class="faq reveal"><summary>どんな職種に対応していますか？<span class="qi"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></summary><div class="ans">全職種に対応可能です。医療・福祉、建設・現場、事務、営業、販売・サービスなど、業種・職種を問わずご相談いただけます。</div></details>
+      <details class="faq reveal"><summary>応募者とのやり取りは誰が行いますか？<span class="qi"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></summary><div class="ans">応募対応・面接・採用のご対応は貴社で行っていただきます。当社はスカウトメールの送信を代行し、候補者は貴社へ直接応募します。</div></details>
+      <details class="faq reveal"><summary>契約中の媒体で利用できますか？<span class="qi"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></span></summary><div class="ans">貴社がご契約中のスカウト媒体の管理画面で送信を代行します。対応可否は媒体により異なる場合があるため、まずはお気軽にご相談ください。</div></details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="dark cta">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker">Contact</span>
+        <h2>まずは、無料でご相談ください。</h2>
+        <p>貴社の採用状況をお聞きし、最適なスカウト運用をご提案します。</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqT00X983KS3SLRL29fTPInLSdsSXQ9No0nEo8Avf7_p__YQ/viewform" target="_blank" rel="noopener" class="btn btn-gold">お問い合わせ・資料請求 <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-b">
+        <div class="n">スカウトマン</div>
+        <div class="s">完全成果報酬型 スカウトメール代行 ／ 運営：株式会社OMINAS</div>
+      </div>
+      <a href="https://ominas.net" class="foot-back"><svg class="ic" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>OMINAS コーポレートサイトへ</a>
+    </div>
+    <div class="foot-copy">© 株式会社OMINAS All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle=document.getElementById('navToggle'),links=document.getElementById('navlinks');
+    if(toggle){toggle.addEventListener('click',function(){
+      var open=links.style.display==='flex';
+      if(open){links.style.display='';}
+      else{Object.assign(links.style,{display:'flex',flexDirection:'column',position:'absolute',top:'76px',left:'0',right:'0',background:'#0A1730',padding:'22px 28px',gap:'18px',borderBottom:'1px solid rgba(255,255,255,.1)',alignItems:'flex-start'});}
+    });}
+    links&&links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=920){links.style.display='';}});});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  })();
+</script>
+</body>
+</html>
